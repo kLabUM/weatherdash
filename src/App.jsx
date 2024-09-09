@@ -1,21 +1,24 @@
-import "./App.css";
-import { Amplify } from "aws-amplify";
-import { generateClient } from "aws-amplify/data";
-import outputs from "../amplify_outputs.json";
+
+import { Authenticator } from '@aws-amplify/ui-react';
+import { Amplify } from 'aws-amplify';
+import outputs from '../amplify_outputs.json';
+import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(outputs);
 const client = generateClient({
     authMode: "userPool",
 });
 
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <p>{ client.models.User.get() }</p>
-            </header>
-        </div>
-    );
-}
-
-export default App;
+export default function App({ Component, pageProps }) {
+  return (
+    <Authenticator>
+      {({ signOut, user }) => (
+        <main>
+          <h1>Hello {user?.username}</h1>
+          <button onClick={signOut}>Sign out</button>
+          <Component {...pageProps} />
+        </main>
+      )}
+    </Authenticator>
+  );
+};
