@@ -33,7 +33,7 @@ export default function App() {
 
 export default function App() {
   return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme} colorMode='dark'>
             <Authenticator>
             {({ signOut, user }) => (
                     <main>
