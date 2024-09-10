@@ -6,17 +6,19 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
-  [data-amplify-color-mode='dark'] {
-    --amplify-colors-background-primary: #242424;
-  }
-  [data-amplify-color-mode='light'] {
-    --amplify-colors-background-primary: #e3e3e3;
-  }
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[data-amplify-color-mode='dark'] {
+  --amplify-colors-background-primary: #0a0a0a;
+  --nav-color: #0a0a0a;
+}
+[data-amplify-color-mode='light'] {
+  --amplify-colors-background-primary: #e3e3e3;
+  --nav-color: #9ec1e0;
 }
 
 #root {
@@ -85,12 +87,7 @@ nav {
   display: flex; /* 1 */
   justify-content: space-between; /* 2 */
   padding: 1rem 2rem; /* 3 */
-  [data-amplify-color-mode='dark'] {
-    --amplify-colors-background-primary: #0a0a0a;
-  }
-  [data-amplify-color-mode='light'] {
-    --amplify-colors-background-primary: #9ec1e0;
-  }
+  background-color: var(--nav-color);
   margin-bottom: 30px;
 }
 
