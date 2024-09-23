@@ -4,6 +4,11 @@ import App from './App.jsx'
 import './index.css'
 import './components/Dashboard.css'
 
+import { Amplify } from 'aws-amplify';
+import outputs from '../amplify_outputs.json';
+
+Amplify.configure(outputs);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
