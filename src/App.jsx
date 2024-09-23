@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Button, Switch } from '@mui/material';
-import { fetchUserAttributes } from 'aws-amplify/auth';
+import { fetchUserAttributes, updateUserAttribute } from 'aws-amplify/auth';
 
 
 /*
@@ -57,14 +57,43 @@ export default function App() {
 
 export default function App() {
     const [colorMode, setColorMode] = React.useState('system');
-    const printUserAttributes = async () => {
+    const [emailPreference, setEmailPreference] = React.useState(false);
+
+
+    const initializeEmailPreference = async () => {
         try {
-          const userAttributes = await fetchUserAttributes();
-          console.log('Email:', userAttributes.email);
-          console.log("preference", userAttributes.emailPreference);
+            const userAttributes = await fetchUserAttributes();
+            if (userAttributes.emailPreference === undefined) {
+                setEmailPreference(false);
+                updateUserAttribute({
+                    userAttribute: {
+                      "emailPreference": false,
+                    }
+                });
+            }
+            else {
+                setEmailPreference(userAttributes.emailPreference);
+            }
         }
         catch (e) { console.log(e); }
+    };
+
+    const handleEmailChange = async (event) => {
+        newVal = event.target.checked;
+        try {
+            updateUserAttribute({
+                userAttribute: {
+                  "emailPreference": newVal,
+                }
+            });
+            setEmailPreference(newVal)
+        }
+        catch (e) { console.log(e); }
+
       };
+
+    initializeEmailPreference();
+
   return (
             <Authenticator>
             {({ signOut, user }) => (
@@ -78,11 +107,13 @@ export default function App() {
                             Detroit Weather Dashboard
                     </Typography>
                     <Box sx={{ p: 2, borderRadius: "5px",border: '1px solid white' }} display="flex" height="36.5px" alignItems="center" justifyContent="center" marginRight="40px">
-                        <p>Recieve Weekly Emails {user.email} </p>
+                        <p>Recieve Weekly Emails</p>
                         <Switch
+                            checked={emailPreference}
+                            onChange={handleEmailChange}
                             />
                             </Box>  
-                            <Button onClick={printUserAttributes} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
+                            <Button variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
                             <Button onClick={signOut} variant="outlined" color="inherit">Log Out</Button>
                         </Toolbar>
                     </AppBar>
