@@ -15,17 +15,45 @@ import Box from '@mui/material/Box';
 import { Button, Switch } from '@mui/material';
 import { fetchUserAttributes, updateUserAttribute } from 'aws-amplify/auth';
 
-
-/*
+/* 
 export default function App() {
-    const printUserAttributes = async () => {
+    const [colorMode, setColorMode] = React.useState('system');
+    const [emailPreference, setEmailPreference] = React.useState(false);
+
+
+    const initializeEmailPreference = async () => {
         try {
-          const userAttributes = await fetchUserAttributes();
-          console.log('Email:', userAttributes.email);
-          console.log("preference", userAttributes.emailPreference);
+            const userAttributes = await fetchUserAttributes();
+            if (userAttributes.emailPreference === undefined) {
+                setEmailPreference(false);
+                updateUserAttribute({
+                    userAttribute: {
+                      "emailPreference": false,
+                    }
+                });
+            }
+            else {
+                setEmailPreference(userAttributes.emailPreference);
+            }
         }
         catch (e) { console.log(e); }
+    };
+
+    const handleEmailChange = async (event) => {
+        newVal = event.target.checked;
+        try {
+            updateUserAttribute({
+                userAttribute: {
+                  "emailPreference": newVal,
+                }
+            });
+            setEmailPreference(newVal)
+        }
+        catch (e) { console.log(e); }
+
       };
+
+    initializeEmailPreference();
 
     return (
     <ThemeProvider theme={theme}>
@@ -53,6 +81,7 @@ export default function App() {
       </ThemeProvider>
     );
   };
+
 */
 
 export default function App() {
@@ -63,7 +92,11 @@ export default function App() {
     const initializeEmailPreference = async () => {
         try {
             const userAttributes = await fetchUserAttributes();
-            if (userAttributes.emailPreference === undefined) {
+            console.log(userAttributes.emailPreference);
+            console.log(typeof(userAttributes.emailPreference));
+            console.log(userAttributes.emailPreference == null);
+            console.log(userAttributes.emailPreference == undefined);
+            if (userAttributes.emailPreference == undefined) {
                 setEmailPreference(false);
                 updateUserAttribute({
                     userAttribute: {
@@ -79,7 +112,8 @@ export default function App() {
     };
 
     const handleEmailChange = async (event) => {
-        newVal = event.target.checked;
+        initializeEmailPreference();
+        let newVal = event.target.checked;
         try {
             updateUserAttribute({
                 userAttribute: {
