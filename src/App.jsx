@@ -82,8 +82,8 @@ export default function App() {
                         <Switch
                             />
                             </Box>  
-                            <Button variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
-                            <Button variant="outlined" color="inherit">Log Out</Button>
+                            <Button onClick={printUserAttributes} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
+                            <Button onClick={signOut} variant="outlined" color="inherit">Log Out</Button>
                         </Toolbar>
                     </AppBar>
                     
