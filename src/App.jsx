@@ -100,7 +100,8 @@ export default function App() {
                 setEmailPreference(false);
                 updateUserAttribute({
                     userAttribute: {
-                      "emailPreference": false,
+                      "Name": "emailPreference",
+                      "Value": false
                     }
                 });
             }
@@ -117,7 +118,8 @@ export default function App() {
         try {
             updateUserAttribute({
                 userAttribute: {
-                  "emailPreference": newVal,
+                    "Name": "emailPreference",
+                    "Value": newVal
                 }
             });
             setEmailPreference(newVal)
