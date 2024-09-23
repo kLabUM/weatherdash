@@ -1,25 +1,12 @@
-import { defaultDarkModeOverride } from '@aws-amplify/ui-react';
+import { createTheme } from '@mui/material/styles';
 
-const theme = {
-  name: 'classic-theme',
-  primaryColor: 'blue',
-  secondaryColor: 'neutral',
-  tokens: {
-    colors: {
-      border: {
-        primary: { value: '{colors.neutral.40}' },
-        secondary: { value: '{colors.neutral.20}' },
-        tertiary: { value: '{colors.neutral.10}' },
-      },
-    },
-    radii: {
-      small: { value: '2px' },
-      medium: { value: '2px' },
-      large: { value: '4px' },
-      xl: { value: '6px' },
-    },
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
   },
-  overrides: [defaultDarkModeOverride],
-};
+  typography: {
+    fontFamily: 'Helvetica, sans-serif',
+  },
+});
 
 export default theme;
