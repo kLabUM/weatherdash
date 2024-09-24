@@ -144,7 +144,7 @@ export default function App() {
                             onChange={handleEmailChange}
                             />
                             </Box>  
-                            <Button onClick={window.print()} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
+                            <Button variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
                             <Button onClick={signOut} variant="outlined" color="inherit">Log Out</Button>
                         </Toolbar>
                     </AppBar>
