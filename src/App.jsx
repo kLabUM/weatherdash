@@ -39,19 +39,6 @@ export default function App() {
         catch (e) { console.log(e); }
     };
 
-    const handleEmailChange = async (event) => {
-        newVal = event.target.checked;
-        try {
-            updateUserAttribute({
-                userAttribute: {
-                  "emailPreference": newVal,
-                }
-            });
-            setEmailPreference(newVal)
-        }
-        catch (e) { console.log(e); }
-
-      };
 
 
     return (
@@ -69,7 +56,7 @@ export default function App() {
                         <Switch
                         />
                     </Box>  
-                    <Button onClick={window.print()} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
+                    <Button variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
                     <Button variant="outlined" color="inherit">Log Out</Button>
                 </Toolbar>
             </AppBar>

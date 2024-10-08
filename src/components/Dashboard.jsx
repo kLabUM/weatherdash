@@ -6,6 +6,7 @@ import {
  import { Box } from "@mui/material";
  import Sentry7Day from "./Sentry7Day";
  import NOAAForecast from "./NOAAForecast";
+import Sentry2Week from "./Sentry2Week";
 
 export default function Dashboard() {
     return(
@@ -19,6 +20,7 @@ export default function Dashboard() {
             </Box>
             <h1>National Weather Service Regional Forecast</h1>
             <NOAAForecast/>
+            <Sentry2Week/>
         </Box>
     );
 }

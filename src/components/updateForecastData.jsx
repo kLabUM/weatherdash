@@ -38,10 +38,6 @@ function updateData(json) {
     return data;
   }
 
-async function makeRequest() {
-
-}
-
 export default async function updateForecast() {
   let data = [
     "-", "-", "-", "", "", "", "",
