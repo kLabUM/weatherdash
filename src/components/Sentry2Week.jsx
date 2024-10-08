@@ -45,7 +45,21 @@ export default function Sentry2Week() {
 
     const placeholder = {
         "columns": ["..."],
-        "downtown_precipitation": ["..."],
+        "downtown_precipitation": [1],
+        "downtown_wind": [1],
+        "downtown_humidity": [1],
+        "downtown_dew": [1],
+        "downtown_max_t": [1],
+        "troy_precipitation": [1],
+        "troy_wind": [1],
+        "troy_humidity": [1],
+        "troy_dew": [1],
+        "troy_max_t": [1],
+        "dtw_precipitation": [1],
+        "dtw_wind": [1],
+        "dtw_humidity": [1],
+        "dtw_dew": [1],
+        "dtw_max_t": [1],
     }
     const [data, setData] = useState(placeholder);
 
@@ -73,8 +87,6 @@ export default function Sentry2Week() {
             xAxis={[{ 
                 scaleType: "point",
                 data: data["columns"]
-
-
                 }]}
             series={[
                 {
@@ -207,22 +219,13 @@ export default function Sentry2Week() {
 
 
 /*
+sample:
 <LineChart
-xAxis={[{scaleType: "band", data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ] }]}
+xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
 series={[
-    {
-    data: data["downtown_precipitation"],
-    label: "Downtown"
-    },
-    {
-    data: data["troy_precipitation"],
-    label: "Troy"
-    },
-    {
-    data: data["dtw_precipitation"],
-    label: "DTW"
-    },
-
+{
+    data: [2, 5.5, 2, 8.5, 1.5, 5],
+},
 ]}
 width={500}
 height={300}
@@ -252,4 +255,139 @@ series={[
 width={1300}
 height={300}
 />
+
+
+
+
+
+custom tabs:
+=============
+<CustomTabPanel value={valueMap} index={0} width="inherit">
+<LineChart
+xAxis={[{ 
+    scaleType: "point",
+    data: data["columns"]
+    }]}
+series={[
+    {
+    data: data["downtown_precipitation"],
+    label: "Downtown"
+    },
+    {
+    data: data["troy_precipitation"],
+    label: "Troy"
+    },
+    {
+    data: data["dtw_precipitation"],
+    label: "DTW"
+    },
+]}
+width={1300}
+height={300}
+/>
+</CustomTabPanel>
+<CustomTabPanel value={valueMap} index={1} width="inherit">
+<LineChart
+xAxis={[{ 
+    scaleType: "point",
+    data: data["columns"]
+
+
+    }]}
+series={[
+    {
+    data: data["downtown_max_t"],
+    label: "Downtown"
+    },
+    {
+    data: data["troy_max_t"],
+    label: "Troy"
+    },
+    {
+    data: data["dtw_max_t"],
+    label: "DTW"
+    },
+]}
+width={1300}
+height={300}
+/>
+</CustomTabPanel>
+<CustomTabPanel value={valueMap} index={2} width="inherit">
+<LineChart
+xAxis={[{ 
+    scaleType: "point",
+    data: data["columns"]
+
+
+    }]}
+series={[
+    {
+    data: data["downtown_dew"],
+    label: "Downtown"
+    },
+    {
+    data: data["troy_dew"],
+    label: "Troy"
+    },
+    {
+    data: data["dtw_dew"],
+    label: "DTW"
+    },
+]}
+width={1300}
+height={300}
+/>
+</CustomTabPanel>
+<CustomTabPanel value={valueMap} index={3} width="inherit">
+<LineChart
+xAxis={[{ 
+    scaleType: "point",
+    data: data["columns"]
+
+
+    }]}
+series={[
+    {
+    data: data["downtown_humidity"],
+    label: "Downtown"
+    },
+    {
+    data: data["troy_humidity"],
+    label: "Troy"
+    },
+    {
+    data: data["dtw_humidity"],
+    label: "DTW"
+    },
+]}
+width={1300}
+height={300}
+/>
+</CustomTabPanel>
+<CustomTabPanel value={valueMap} index={4} width="inherit">
+<LineChart
+xAxis={[{ 
+    scaleType: "point",
+    data: data["columns"]
+
+
+    }]}
+series={[
+    {
+    data: data["downtown_wind"],
+    label: "Downtown"
+    },
+    {
+    data: data["troy_wind"],
+    label: "Troy"
+    },
+    {
+    data: data["dtw_wind"],
+    label: "DTW"
+    },
+]}
+width={1300}
+height={300}
+/>
+</CustomTabPanel>
 */
