@@ -7,6 +7,8 @@ import {
  import Sentry7Day from "./Sentry7Day";
  import NOAAForecast from "./NOAAForecast";
 import Sentry2Week from "./Sentry2Week";
+import RainfallAcc from "./RainfallAcc";
+import FlowForecast from "./FlowForecast";
 
 export default function Dashboard() {
     return(
@@ -20,7 +22,10 @@ export default function Dashboard() {
             </Box>
             <h1>National Weather Service Regional Forecast</h1>
             <NOAAForecast/>
+            <RainfallAcc/>
             <Sentry2Week/>
+            <FlowForecast/>
+            
         </Box>
     );
 }

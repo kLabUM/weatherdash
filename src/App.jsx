@@ -15,7 +15,7 @@ import Box from '@mui/material/Box';
 import { Button, Switch } from '@mui/material';
 import { fetchUserAttributes, updateUserAttribute } from 'aws-amplify/auth';
 
-/*
+
 export default function App() {
     const [colorMode, setColorMode] = React.useState('system');
     const [emailPreference, setEmailPreference] = React.useState(false);
@@ -67,8 +67,8 @@ export default function App() {
       </ThemeProvider>
     );
   };
-*/
 
+/*
 
 export default function App() {
     const [colorMode, setColorMode] = React.useState('system');
@@ -145,3 +145,4 @@ export default function App() {
            
   );
 };
+*/
