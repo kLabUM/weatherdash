@@ -13,10 +13,10 @@ import FlowForecast from "./FlowForecast";
 export default function Dashboard() {
     return(
         <Box display="flex" flexDirection="column" maxWidth="90vw" justifyContent="center" alignItems="center" margin="auto">
-            <Box sx={{flexDirection: { xs: "column", md: "row" }}} display="flex" justifyContent="center" alignItems="center" width="90vw" marginBottom="50px">
+            <Box sx={{flexDirection: { md: "column", xl: "row" }}} display="flex" justifyContent="center" alignItems="center" width="90vw" marginBottom="50px">
                 <Sentry7Day/>
-                <Box sx={{maxWidth: { xs: "90vw", md: "40vw" }}}>
-                <img src="https://www.weather.gov/images/dtx/wxstory/Tab2FileL.png" style={{maxWidth: "inherit", marginLeft: "30px"}}></img>
+                <Box display="flex" justifyContent="center" alignItems="center" sx={{maxWidth: { md: "90vw", xl: "40vw" }}}>
+                <img src="https://www.weather.gov/images/dtx/wxstory/Tab2FileL.png" style={{maxWidth: "inherit", margin: "30px"}}></img>
                 </Box>
                 
             </Box>

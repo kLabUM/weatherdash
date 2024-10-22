@@ -48,7 +48,7 @@ export default function RainfallAcc() {
     };
 
     return(
-        <Box>
+        <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
             <h1>National Weather Service Rainfall Accumulation Forecast</h1>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={valueMap} onChange={handleChangeMap} aria-label="basic tabs example">
@@ -62,7 +62,7 @@ export default function RainfallAcc() {
             <CustomTabPanel value={valueMap} index={1} width="inherit">
                 <img src="#" width="1000px" height="500px"></img>
             </CustomTabPanel>
-            <Box>
+            <Box width="100%">
                 <Box display="flex" justifyContent="space-between" alignItems="center">
                     <h3>Expected rainfall over the next {hours} hours</h3>
                     <Button style={{maxWidth: '150px', maxHeight: '35px', minWidth: '150px', minHeight: '35px'}} variant='outlined'>Refresh Map</Button>

@@ -47,9 +47,9 @@ export default function NOAAForecast() {
     };
 
     return(
-        <Box display="flex" alignItems="flex-start" sx={{flexDirection: { xs: "column", md: "row" }}}>
+        <Box display="flex" alignItems="flex-start" sx={{flexDirection: { md: "column", xl: "row" }}}>
             
-            <Box sx={{width: { xs: "90vw", md: "40vw" }}} display="flex" flexDirection="column" justifyContent="center" alignItems="center" marginRight="30px">
+            <Box sx={{width: { md: "90vw", xl: "40vw" }}} display="flex" flexDirection="column" justifyContent="center" alignItems="center" marginRight="30px">
                 <h2>Map Forecast</h2>
                 
                 <Box width="inherit">
@@ -67,7 +67,7 @@ export default function NOAAForecast() {
                     </CustomTabPanel>
                 </Box>
             </Box>
-            <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" sx={{width: { xs: "90vw", md: "40vw" }}}>
+            <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" sx={{width: { md: "90vw", xl: "40vw" }}}>
                 <h2>Hourly Forecast</h2>
                 <Box width="inherit">
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

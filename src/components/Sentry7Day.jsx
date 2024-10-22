@@ -23,10 +23,10 @@ export default function Sentry7Day() {
     
     
     return(
-        <Box sx={{maxWidth: { xs: "90vw", md: "40vw" }}} marginRight="30px" display="flex" alignItems="center" flexDirection="column">
+        <Box sx={{width: { md: "90vw", xl: "40vw" }}} margin="30px" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
             <h1>Weather Sentry 7 Day Forecast</h1>
         <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Day</TableCell>
