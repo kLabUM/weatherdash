@@ -47,7 +47,7 @@ export default async function updateForecast() {
     const downloadResult = await downloadData({
       path: "media/sentry7day.json"
     }).result;
-    const json = await downloadResult.body.json();
+    const json = await downloadResult.body.text();
 
     data = updateData(json);
     return data;
