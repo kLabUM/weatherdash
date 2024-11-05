@@ -1,6 +1,4 @@
-
-
-const API_URL = "https://t2or5xn5y8.execute-api.us-east-2.amazonaws.com/default/scrapeForecast"
+import { downloadData } from 'aws-amplify/storage';
 
 function updateData(json) {
     let data = [
@@ -45,12 +43,12 @@ export default async function updateForecast() {
     "", "", "", "", "", "", "",
     "", "", "", "", "", "", "",
     "", "", "", "", "", "", "",
-];
-    let response = await fetch(API_URL, {mode: 'cors',
-      header: {
-        'Access-Control-Allow-Origin':'*',
-      }})
-    let json = await response.json();
+    ];
+    const downloadResult = await downloadData({
+      path: "sentry7day.json"
+    }).result;
+    const json = await downloadResult.body.json();
+
     data = updateData(json);
     return data;
 }
