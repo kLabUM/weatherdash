@@ -76,7 +76,7 @@ export default function Sentry2Week() {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={valueMap} onChange={handleChangeMap} aria-label="tabs">
                 <Tab label="Precipitation" {...a11yProps(0)} />
-                <Tab label="Temperature" {...a11yProps(1)} />
+                <Tab label="High Temperature" {...a11yProps(1)} />
                 <Tab label="Dew Point" {...a11yProps(2)} />
                 <Tab label="Humidity" {...a11yProps(3)} />
                 <Tab label="Windspeed" {...a11yProps(4)} />

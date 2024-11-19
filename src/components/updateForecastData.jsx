@@ -49,7 +49,8 @@ export default async function updateForecast() {
     }).result;
     const json = await downloadResult.body.text();
 
-    data = updateData(json);
+    
+    data = updateData(JSON.parse(json));
     return data;
 }
 

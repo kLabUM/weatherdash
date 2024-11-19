@@ -5,7 +5,8 @@ export default async function get2WeekSentry() {
     path: "media/sentry2week.json"
   }).result;
   const json = await downloadResult.body.text();
-  return json;
+
+  return JSON.parse(json);
 }
 
 

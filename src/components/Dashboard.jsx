@@ -8,7 +8,7 @@ import {
  import NOAAForecast from "./NOAAForecast";
 import Sentry2Week from "./Sentry2Week";
 import RainfallAcc from "./RainfallAcc";
-import FlowForecast from "./FlowForecast";
+import RainMap from "./rainfallMap/rainMap";
 
 export default function Dashboard() {
     return(
@@ -24,8 +24,6 @@ export default function Dashboard() {
             <NOAAForecast/>
             <RainfallAcc/>
             <Sentry2Week/>
-            <FlowForecast/>
-            
         </Box>
     );
 }

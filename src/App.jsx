@@ -15,95 +15,54 @@ import Box from '@mui/material/Box';
 import { Button, Switch } from '@mui/material';
 import { fetchUserAttributes, updateUserAttribute } from 'aws-amplify/auth';
 
-/*
-export default function App() {
-    const [colorMode, setColorMode] = React.useState('system');
-    const [emailPreference, setEmailPreference] = React.useState(false);
-
-
-    const initializeEmailPreference = async () => {
-        try {
-            const userAttributes = await fetchUserAttributes();
-            if (userAttributes.emailPreference === undefined) {
-                setEmailPreference(false);
-                updateUserAttribute({
-                    userAttribute: {
-                      "emailPreference": false,
-                    }
-                });
-            }
-            else {
-                setEmailPreference(userAttributes.emailPreference);
-            }
+async function handleUpdateUserAttribute(attributeKey, value) {
+    try {
+      const output = await updateUserAttribute({
+        userAttribute: {
+          attributeKey,
+          value
         }
-        catch (e) { console.log(e); }
-    };
-
-
-
-    return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box height="100%" justifyContent="center">
-        <Box alignItems="center" display="flex" justifyContent="space-between" height="70px">
-            <AppBar position="fixed" top="0">
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Detroit Weather Dashboard
-                    </Typography>
-                    <Box sx={{ p: 2, borderRadius: "5px",border: '1px solid white' }} display="flex" height="36.5px" alignItems="center" justifyContent="center" marginRight="40px">
-                        <p>Recieve Weekly Emails </p>
-                        <Switch
-                        />
-                    </Box>  
-                    <Button variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
-                    <Button variant="outlined" color="inherit">Log Out</Button>
-                </Toolbar>
-            </AppBar>
-            
-        </Box>
-        <Dashboard/>
-        </Box>
-      </ThemeProvider>
-    );
-  };
-
-*/
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  
 
 export default function App() {
     const [colorMode, setColorMode] = React.useState('system');
     const [emailPreference, setEmailPreference] = React.useState(false);
 
+    const handleDownloadPDF = async (event) => {
+        event.preventDefault();
+    }
 
     const initializeEmailPreference = async () => {
+        console.log("Initializing email preference")
         try {
             const userAttributes = await fetchUserAttributes();
-            if (userAttributes.emailPreference == undefined) {
+            console.log(userAttributes["custom:emailPreference"])
+            if (userAttributes["custom:emailPreference"] == undefined) {
                 setEmailPreference(false);
-                updateUserAttribute({
-                    userAttribute: {
-                      "Name": "emailPreference",
-                      "Value": "false"
-                    }
-                });
+                handleUpdateUserAttribute("customemailPreference", "false")
             }
             else {
-                setEmailPreference(userAttributes.emailPreference);
+                setEmailPreference((userAttributes["custom:emailPreference"] == 'false') ? false : true);
             }
         }
-        catch (e) { console.log(e); }
+        catch (e) { 
+            console.log("error :(")
+            console.log(e); 
+        }
     };
 
     const handleEmailChange = async (event) => {
-        initializeEmailPreference();
+        event.preventDefault();
+        console.log("Handling email change")
         let newVal = event.target.checked;
         try {
-            updateUserAttribute({
-                userAttribute: {
-                    "Name": "emailPreference",
-                    "Value": String(newVal)
-                }
-            });
+            handleUpdateUserAttribute("custom:emailPreference", String(newVal))
             setEmailPreference(newVal)
         }
         catch (e) { console.log(e); }
@@ -131,7 +90,7 @@ export default function App() {
                             onChange={handleEmailChange}
                             />
                             </Box>  
-                            <Button variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
+                            <Button onClick={handleDownloadPDF} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
                             <Button onClick={signOut} variant="outlined" color="inherit">Log Out</Button>
                         </Toolbar>
                     </AppBar>
