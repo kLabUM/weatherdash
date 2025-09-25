@@ -72,7 +72,7 @@ export default function Sentry2Week() {
       
     return(
         <Box sx={{maxWidth: "90vw"}} marginRight="30px" display="flex" alignItems="center" flexDirection="column">
-            <h1>Weather Sentry 7 Day Forecast</h1>
+            <h1>Weather Sentry 2 Week Forecast</h1>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={valueMap} onChange={handleChangeMap} aria-label="tabs">
                 <Tab label="Precipitation" {...a11yProps(0)} />
