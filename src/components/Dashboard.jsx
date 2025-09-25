@@ -22,7 +22,7 @@ export default function Dashboard() {
             </Box>
             <h1>National Weather Service Regional Forecast</h1>
             <NOAAForecast/>
-            <RainfallAcc/>
+            {false && <RainfallAcc/> }
             <Sentry2Week/>
         </Box>
     );

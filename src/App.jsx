@@ -83,15 +83,18 @@ export default function App() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Detroit Weather Dashboard
                     </Typography>
+                    {false &&
                     <Box sx={{ p: 2, borderRadius: "5px",border: '1px solid white' }} display="flex" height="36.5px" alignItems="center" justifyContent="center" marginRight="40px">
                         <p>Recieve Weekly Emails</p>
+
                         <Switch
                             checked={emailPreference}
                             onChange={handleEmailChange}
-                            />
-                            </Box>  
-                            <Button onClick={handleDownloadPDF} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button>
-                            <Button onClick={signOut} variant="outlined" color="inherit">Log Out</Button>
+                        />
+                        </Box>   }
+                    {false &&
+                        <Button onClick={handleDownloadPDF} variant="outlined" color="inherit" sx="margin-right: 40px">Download PDF</Button> }
+                        <Button onClick={signOut} variant="outlined" color="inherit">Log Out</Button>
                         </Toolbar>
                     </AppBar>
                     
